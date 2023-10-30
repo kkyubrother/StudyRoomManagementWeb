@@ -114,11 +114,11 @@ const Main = props => {
     const handleErrorServerInfo = error => setServerAlive(false);
 
     useEffect(() => {
-        axios.get("/api/info", {timeout: 900}).then(response => response.data)
+        axios.get("/api/info", {timeout: 5000}).then(response => response.data)
             .then(handleServerInfo)
             .catch(handleErrorServerInfo)
         const i = setInterval(() => {
-            axios.get("/api/info", {timeout: 900}).then(response => response.data)
+            axios.get("/api/info", {timeout: 5000}).then(response => response.data)
                 .then(handleServerInfo)
                 .catch(handleErrorServerInfo)
         }, 1000 * 10)
