@@ -190,7 +190,7 @@ const Books = props => {
                     />
                 </Col>
                 <Col sm={1} style={{marginTop: "8px"}}><Button onClick={handleOnClickNewBook}>예약</Button></Col>
-                <Col sm={1} style={{marginTop: "8px"}}><Button disabled={users.length === 0} onClick={() => setShowDonationModal(true)}>후원</Button></Col>
+                <Col sm={1} style={{marginTop: "8px"}}><Button disabled={users.length === 0} onClick={() => setShowDonationModal(true)}>적립</Button></Col>
                 <Col sm={1} style={{marginTop: "8px"}}><Button onClick={() => updateBookData()}>갱신</Button></Col>
             </Row>
         </Container>
@@ -221,9 +221,9 @@ const Books = props => {
         </Modal>}
         {
             <Modal show={showDonationModal} onClose={() => setShowDonationModal(false)}>
-            <Modal.Header>후원자 선택</Modal.Header>
+            <Modal.Header>대상 선택</Modal.Header>
             <Modal.Body>
-                후원자 이름
+                회원 이름
                 <input value={username} onChange={e => setUsername(e.target.value)} />
                 {user && user.username ? `사용자 tel: ${user.num}` : "없음"}
             </Modal.Body>
@@ -232,7 +232,7 @@ const Books = props => {
                 onClick={() => handleOnClickDonation(user)}
                 variant={"primary"}
                 disabled={!(user && user.username)}
-                >후원</Button>
+                >적립</Button>
 
                 <Button
                 onClick={() => setShowDonationModal(false)}

@@ -305,7 +305,7 @@ const AccountsMain = (props) => {
               <td colSpan={1}>-</td>
             </tr>
             <tr>
-              <td colSpan={1}>후원</td>
+              <td colSpan={1}>적립</td>
               <td colSpan={1}>
                 {(
                   sumData("donation_card") + sumData("donation_etc")
@@ -343,8 +343,8 @@ const AccountsMain = (props) => {
             <tr>
               <th>지역</th>
               <th>카드 결제</th>
-              <th>후원(카드)</th>
-              <th>후원(기타)</th>
+              <th>적립(카드)</th>
+              <th>적립(기타)</th>
               <th>적립금 사용</th>
               <th>이체</th>
               <th>기타</th>
@@ -377,7 +377,7 @@ const AccountsMain = (props) => {
             />
             <tr>
               <td colSpan={4}>
-                전체 합(카드 + 후원(카드 + 기타) + 이체 - 후원 금액 제외)
+                전체 합(카드 + 적립(카드 + 기타) + 이체 - 적립 금액 제외)
               </td>
               <td colSpan={3}>
                 {(
@@ -394,7 +394,7 @@ const AccountsMain = (props) => {
           <thead>
             <th>날짜</th>
             <th>대관</th>
-            <th>후원</th>
+            <th>적립</th>
             {/*<th>스넥바</th>*/}
             {/*<th>스넥바 순수익</th>*/}
           </thead>

@@ -62,7 +62,7 @@ const DonationPage = props => {
         if (Number(paid) < 1000) {
             setModal(<ModalWaitPay
                 show={true}
-                title={"요청 실패"} message={"1000 원 부터 후원 가능합니다."}
+                title={"요청 실패"} message={"1000 원 부터 적립 가능합니다."}
                 handleClose={() => setModal(null)} />)
             return
         }

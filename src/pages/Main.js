@@ -145,7 +145,7 @@ const Main = props => {
             {/*<Col style={styles.col} >*/}
             {/*    <CardItem*/}
             {/*        img_src={"img_guest/icon-donation.png"}*/}
-            {/*        text={"후원"}*/}
+            {/*        text={"적립"}*/}
             {/*        onClick={() => navigate("/guest", {state:{backref: "/guest/donation"}})}*/}
             {/*    />*/}
             {/*</Col>*/}

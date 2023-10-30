@@ -95,7 +95,7 @@ const type_list = [
         text: "관리자",
     }
 }, {
-    name: "후원 기록",
+    name: "적립 기록",
     id: "log.donation",
     grade: 20,
     available: true,
@@ -104,7 +104,7 @@ const type_list = [
         text: "관리자",
     }
 }, {
-    name: "후원 기록(성공만)",
+    name: "적립 기록(성공만)",
     id: "log.donation.only_success",
     grade: 20,
     available: true,
