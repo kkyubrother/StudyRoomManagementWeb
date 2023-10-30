@@ -1,0 +1,8 @@
+div.admin-main-page-container > div.row > div.col {
+    margin: 5px;
+    transition: 0.5s;
+}
+
+div.admin-main-page-container > div.row > div.col:hover {
+    margin: 0;
+}
