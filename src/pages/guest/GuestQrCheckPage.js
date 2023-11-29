@@ -81,11 +81,7 @@ const GuestQrCheckPage = () => {
   return (
     <Container style={styles.container} fluid>
       {!qr_code && (
-        <img
-          src={"http://localhost:5000/api/users/2/qr.png"}
-          width={"50%"}
-          alt={"qr.png"}
-        />
+        <img src={"/api/users/2/qr.png"} width={"50%"} alt={"qr.png"} />
       )}
       <div></div>
       <div>
