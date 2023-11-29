@@ -2,22 +2,26 @@ import format from "date-fns/format";
 import range from "lodash/range";
 import PropTypes from "prop-types";
 import * as React from "react";
-import {DEFAULT_HOURS_INTERVAL} from "./constants";
+import { DEFAULT_HOURS_INTERVAL } from "./constants";
 
 // @
 // ts-expect-error Cannot find module './styles.module.css' or its corresponding type declarations.
 // @ts-ignore
 import classNames from "./styles.module.css";
 import type {
-    DayColumnPreviewProps,
-    DayHeaderPreviewProps,
-    EventPreviewProps,
-    EventsListProps,
-    HourPreviewProps,
-    HoursListProps,
-    TimeTableProps,
+  DayColumnPreviewProps,
+  DayHeaderPreviewProps,
+  EventPreviewProps,
+  EventsListProps,
+  HourPreviewProps,
+  HoursListProps,
+  TimeTableProps,
 } from "./types";
-import {getDefaultDayLabel, getEventPositionStyles, getRowHeight,} from "./utils";
+import {
+  getDefaultDayLabel,
+  getEventPositionStyles,
+  getRowHeight,
+} from "./utils";
 
 export const DayHeaderPreview: React.FC<DayHeaderPreviewProps> = ({
   day,
@@ -74,7 +78,7 @@ export const EventsList = ({
       },
       // @ts-ignore
       classNames,
-    })
+    }),
   );
 };
 
@@ -130,7 +134,7 @@ export const HoursList = ({
       hour: `${hour}:00`,
       className: classNames.hour,
       style: { height: `${rowHeight}px` },
-    })
+    }),
   );
 };
 
@@ -166,7 +170,7 @@ export const TimeTable = ({
     if (ref.current) {
       const totalHeight = (ref.current as HTMLDivElement).clientHeight;
       setRowHeight(
-        getRowHeight(hoursInterval.from, hoursInterval.to, totalHeight)
+        getRowHeight(hoursInterval.from, hoursInterval.to, totalHeight),
       );
     }
   }, [hoursInterval, dimensions]);
@@ -204,7 +208,7 @@ export const TimeTable = ({
           hoursInterval,
           headerAttributes,
           bodyAttributes,
-        })
+        }),
       )}
     </div>
   );

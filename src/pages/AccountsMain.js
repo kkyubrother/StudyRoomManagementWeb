@@ -9,7 +9,6 @@ import { getPays, getPaysByDate } from "../api/pays";
 import moment from "moment";
 import { splitPayType } from "../utils";
 import DatePicker from "react-datepicker";
-import { getSnackBarPaysByDate, getSnackBarProducts } from "../api/snackbar";
 import { ProgressBar } from "react-bootstrap";
 
 const demo_data = [
@@ -67,43 +66,7 @@ const AccountsMain = (props) => {
   const [pays, setPays] = useState(
     new Array(31).fill({ date: moment(), value: 0 }),
   );
-  const [snackPays, setSnackPays] = useState(
-    new Array(31).fill({ date: moment(), values: [] }),
-  );
-  const [snackbarData, setSnackbarData] = useState([]);
-  const [snackbarQuantityFilteringCount, setSnackbarQuantityFilteringCount] =
-    useState(10);
-  const [snackbarProducts, setSnackbarProducts] = useState([]);
   const [progressNow, setProgressNow] = useState(0);
-
-  useEffect(() => {
-    // (async () =>
-    //   setSnackbarData(
-    //     await getSnackBarPaysByDate(moment(selected_date).format("YYYY-MM-DD")),
-    //   ))();
-    // (async () => setSnackbarProducts(await getSnackBarProducts()))();
-    (async () => await updateSnackPays())();
-  }, [selected_date]);
-
-  const updateSnackPays = async () => {
-    const dayList = [...new Array(31)]
-      .map((_, i) => i + 1)
-      .map((d) =>
-        moment()
-          .set("month", moment(selected_date).month())
-          .set("date", Number(d)),
-      )
-      .map((d) => d.format("YYYY-MM-DD"));
-
-    const snackbarPays = await Promise.allSettled(
-      dayList.map((d) => getSnackBarPaysByDate(d)),
-    );
-    setSnackPays(
-      snackbarPays.map((d, i) => {
-        return { date: dayList[i], values: d.value };
-      }),
-    );
-  };
 
   const updateTodayPays = (result) => {
     setData(
@@ -236,12 +199,6 @@ const AccountsMain = (props) => {
     })();
   }, [selected_date]);
 
-  const handleSnackbarProductQuantityFilter = (e) => {
-    setSnackbarQuantityFilteringCount(
-      snackbarQuantityFilteringCount + Number(e.target.value),
-    );
-  };
-
   const sumData = (key) =>
     data.map((v) => v[key]).reduce((prev, curr) => prev + curr, 0) -
     data
@@ -313,28 +270,6 @@ const AccountsMain = (props) => {
               </td>
               <td colSpan={1}>-</td>
             </tr>
-            {/*<tr>*/}
-            {/*    <td colSpan={1}>스넥바</td>*/}
-            {/*    <td>{snackbarData.reduce((p, c) => p + c.total_price, 0).toLocaleString()}</td>*/}
-            {/*    <td>{snackbarData.reduce((p, c) => p + c.total_price - (c.total_original_price + Math.floor(c.total_price / 10)), 0).toLocaleString()}</td>*/}
-            {/*</tr>*/}
-            {/*<tr>*/}
-            {/*    <td colSpan={3} style={{textAlign: "center", fontSize: "large"}}>스낵바 물품 알림 설정</td>*/}
-            {/*</tr>*/}
-            {/*<tr>*/}
-            {/*    <td colSpan={1}>{`${snackbarQuantityFilteringCount}개 이하 표시`}</td>*/}
-            {/*    <td colSpan={1}><Button onClick={handleSnackbarProductQuantityFilter} value={"1"}>+ 1</Button></td>*/}
-            {/*    <td colSpan={1}><Button onClick={handleSnackbarProductQuantityFilter} value={"-1"}>- 1</Button></td>*/}
-            {/*</tr>*/}
-            {/*    {snackbarProducts*/}
-            {/*        .filter(v => v.quantity <= snackbarQuantityFilteringCount).map(v =>*/}
-            {/*            <tr>*/}
-            {/*                <td colSpan={1}></td>*/}
-            {/*                <td colSpan={1}>{v.name}</td>*/}
-            {/*                <td colSpan={1}>{v.quantity}</td>*/}
-            {/*            </tr>*/}
-            {/*        )*/}
-            {/*    }*/}
           </tbody>
         </Table>
 
@@ -395,8 +330,6 @@ const AccountsMain = (props) => {
             <th>날짜</th>
             <th>대관</th>
             <th>적립</th>
-            {/*<th>스넥바</th>*/}
-            {/*<th>스넥바 순수익</th>*/}
           </thead>
           <tbody>
             {isLoadingPays ? (
@@ -410,8 +343,6 @@ const AccountsMain = (props) => {
                 <td>
                   <Spinner animation={"border"} />
                 </td>
-                {/*<td><Spinner animation={"border"} /></td>*/}
-                {/*<td><Spinner animation={"border"} /></td>*/}
               </tr>
             ) : (
               pays.map((v, i) => (
@@ -419,8 +350,6 @@ const AccountsMain = (props) => {
                   <td>{v.date.format("yyyy-MM-DD")}</td>
                   <td>{v.study}</td>
                   <td>{v.donation}</td>
-                  {/*<td>{snackPays[i].values.reduce((p, c) => p + c.total_price, 0)}</td>*/}
-                  {/*<td>{snackPays[i].values.reduce((p, c) => p + c.total_price - (c.total_original_price + Math.floor(c.total_price / 10)), 0)}</td>*/}
                 </tr>
               ))
             )}

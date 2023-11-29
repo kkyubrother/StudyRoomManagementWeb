@@ -12,12 +12,10 @@ import Main from "./pages/Main";
 import Config from "./pages/Config";
 import Exports from "./pages/Exports";
 import Logs from "./pages/Logs";
-import GuestDonationPage from "./pages/guest/GuestDonationPage";
 import GuestBookCheckPage from "./pages/guest/GuestBookCheckPage";
 import GuestBookPage from "./pages/guest/GuestBookPage";
 import GuestQrCheckPage from "./pages/guest/GuestQrCheckPage";
 import GuestQrResultPage from "./pages/guest/GuestQrResultPage";
-import SavedMoneyByDepartmentPage from "./pages/SavedMoneyByDepartment";
 import AccountsMain from "./pages/AccountsMain";
 import LockerPage from "./pages/Locker";
 import CouponPage from "./pages/Coupon";
@@ -27,6 +25,7 @@ import DonationPage from "./pages/DonationPage";
 import AdminMainPage from "./pages/AdminMainPage";
 import ChartPage from "./pages/ChartPage";
 import StatusBook from "./pages/StatusBook";
+import GuestSignUpPage from "./pages/guest/GuestSignUpPage";
 
 function App() {
   document.addEventListener("contextmenu", (e) => {
@@ -44,7 +43,7 @@ function App() {
       <Route path="/exports" element={<Exports />} />
       <Route path="/logs" exact element={<Logs />} />
       <Route path="/guest/book" element={<GuestBookPage />} />
-      <Route path="/guest/donation" element={<GuestDonationPage />} />
+      <Route path="/guest/signup" element={<GuestSignUpPage />} />
       <Route path="/guest/book_check" element={<GuestBookCheckPage />} />
       <Route path="/guest" element={<GuestQrCheckPage />} />
       <Route path="/qr" element={<GuestQrResultPage />} />

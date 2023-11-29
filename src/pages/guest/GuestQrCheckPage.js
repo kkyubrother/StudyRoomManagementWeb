@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { getUserByQr } from "../../api/users";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ACTION_UPDATE_USER } from "../../context/action";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import { Context } from "../../context";
 
@@ -97,21 +96,28 @@ const GuestQrCheckPage = () => {
     );
   }, []);
 
+  useEffect(() => {
+    const timer = window.setTimeout(async () => {
+      const qr_code = await (await fetch("/api/users/5/qr.txt")).json();
+      setQrCode(qr_code.message);
+    }, 3000);
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <Container style={styles.container} fluid>
       {!qr_code && (
         <img
-          src={"http://localhost:5000/api/users/1/qr.png"}
+          src={"http://localhost:5000/api/users/5/qr.png"}
           width={"50%"}
           alt={"qr.png"}
         />
       )}
-      <div>
-        <Button onClick={() => setQrCode(QR_CODE)}>큐알 입력</Button>
-      </div>
+      <div></div>
       <div>
         <h1>{timer_count}초 후 메인화면으로 복귀합니다.</h1>
-        <Button onClick={() => navigate("/")}>홈으로</Button>
       </div>
     </Container>
   );
