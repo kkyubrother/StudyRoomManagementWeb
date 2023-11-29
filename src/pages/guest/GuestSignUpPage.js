@@ -62,7 +62,7 @@ const GuestSignUpPage = () => {
 
       const response = await (await fetch(`${signup_url}/sms`)).json();
 
-      setUser({ ...newUser, otp: response.otp });
+      setUser({ ...newUser, otp: response.sms });
       setRequestOtp(true);
     }
   };

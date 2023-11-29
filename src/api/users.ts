@@ -8,10 +8,7 @@ export function getUsers(Authorization: string): Promise<User[]> {
     .then((value) => value.data)
     .then((value) => value.users);
 }
-export function getUser(
-  Authorization: string,
-  user_id: number,
-): Promise<User[]> {
+export function getUser(Authorization: string, user_id: number): Promise<User> {
   // @ts-ignore
   return axios
     .get(`/api/users/${user_id}`, { headers: { Authorization } })

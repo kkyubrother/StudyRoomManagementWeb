@@ -25,7 +25,7 @@ import {
   convertConfigHourToHour,
   convertRoomToRoomName,
 } from "../util/convert";
-import { getUsers } from "../api/users";
+import { getUser, getUsers } from "../api/users";
 import { convertBookItem, getDefaultRoom } from "../util/book";
 
 const CustomDatePickerInput = ({ value, onClick }) => {
@@ -66,7 +66,7 @@ const CustomDayHeader = (props) => {
 
 const TimetableItemWithText = ({ event, defaultAttributes, classNames }) => {
   const text_first = event.data.department ? `[${event.data.department}]` : "";
-  const text_second = `${event.data.user.username} 포함 ${event.data.people_no}명`;
+  const text_second = `${event.data.user.username}`;
   const text_third =
     moment(event.startTime).format("HH:mm") +
     " - " +
@@ -99,6 +99,7 @@ const TimetableItemWithText = ({ event, defaultAttributes, classNames }) => {
 const Books = (props) => {
   const navigate = useNavigate();
 
+  const [admin, setAdmin] = useState({});
   const [books, setBooks] = useState({});
   const [book_date, setBookDate] = useState(Date.now());
   const [hourInterval, setHourInterval] = useState({ from: 9, to: 22 });
@@ -114,6 +115,9 @@ const Books = (props) => {
   useEffect(() => {
     getUsers(sessionStorage.getItem("Authorization")).then((users) =>
       setUsers(users),
+    );
+    getUser(sessionStorage.getItem("Authorization"), 1).then((admin) =>
+      setAdmin(admin),
     );
   }, []);
 
@@ -200,26 +204,8 @@ const Books = (props) => {
     navigate("/staff/book", {
       replace: true,
       state: {
-        user: {
-          age: null,
-          birthday: null,
-          chat_id: -1001583498229,
-          created: "2022-01-31T23:54:44",
-          delete_que: null,
-          department: null,
-          gender: null,
-          grade: 20,
-          modified: "2022-01-31T23:54:44",
-          num: null,
-          sms: 1,
-          status: null,
-          tg_name: null,
-          user_id: 1,
-          username: "웹사이트",
-          valid: true,
-        },
-        qr_code:
-          "100001xJemApdrPDbgLOy5t0IgdpzkU6xX7iDzBpmc8VRtAty7MhjTwEXy-xIp1C2gyPCeeFcXZSJIqeTkTJ3FqWPMRQ",
+        // for demo
+        user: admin,
       },
     });
   };
@@ -247,14 +233,14 @@ const Books = (props) => {
           <Col sm={1} style={{ marginTop: "8px" }}>
             <Button onClick={handleOnClickNewBook}>예약</Button>
           </Col>
-          <Col sm={1} style={{ marginTop: "8px" }}>
-            <Button
-              disabled={users.length === 0}
-              onClick={() => setShowDonationModal(true)}
-            >
-              적립
-            </Button>
-          </Col>
+          {/*<Col sm={1} style={{ marginTop: "8px" }}>*/}
+          {/*  <Button*/}
+          {/*    disabled={users.length === 0}*/}
+          {/*    onClick={() => setShowDonationModal(true)}*/}
+          {/*  >*/}
+          {/*    적립*/}
+          {/*  </Button>*/}
+          {/*</Col>*/}
           <Col sm={1} style={{ marginTop: "8px" }}>
             <Button onClick={() => updateBookData()}>갱신</Button>
           </Col>

@@ -9,6 +9,8 @@ import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { MdReportProblem } from "react-icons/md";
 import { isDebug } from "../utils";
+import { getOTPCodeDemo } from "../api/demo";
+import { post_otp } from "../api/auth";
 
 const styles = {
   container: {
@@ -96,8 +98,6 @@ const ModalMessage = ({ show, onHide, message }) => {
 };
 
 const Main = (props) => {
-  // console.debug(`Main::props::${JSON.stringify(props, null, 2)}`);
-
   const location = useLocation();
   const navigate = useNavigate();
   const [show, setShow] = useState(
@@ -136,6 +136,13 @@ const Main = (props) => {
     };
   }, []);
 
+  // demo
+  useEffect(() => {
+    getOTPCodeDemo()
+      .then((otp) => post_otp(otp).catch(console.error))
+      .catch(console.error);
+  }, []);
+
   return (
     <Container style={styles.container} fluid>
       <Row
@@ -146,7 +153,7 @@ const Main = (props) => {
       >
         <h1 style={{ textAlign: "center", fontWeight: "bold" }}>
           {" "}
-          {/*관리자 진입*/}
+          관리자 진입(demo)
         </h1>{" "}
       </Row>
       <Row style={styles.row}>

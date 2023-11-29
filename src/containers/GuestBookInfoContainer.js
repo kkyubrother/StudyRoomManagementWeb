@@ -143,8 +143,6 @@ const GuestBookInfoContainer = ({
       {changeRoomText ? (
         <span style={{ color: "red" }}>{changeRoomText}</span>
       ) : null}
-      <InputDepartment department={book.department} disabled />
-      <InputPeopleNoV2 people_no={book.people_no} disabled />
       <InputPurpose purpose={book.purpose} disabled />
       <InputPay
         pay={book.pay}

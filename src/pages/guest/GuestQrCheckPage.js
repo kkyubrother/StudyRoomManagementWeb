@@ -5,9 +5,6 @@ import { ACTION_UPDATE_USER } from "../../context/action";
 import Container from "react-bootstrap/Container";
 import { Context } from "../../context";
 
-const QR_CODE =
-  "100001xdcgxMInGDMOv4TcEV17IjYG94JITd8Ifr5w3b7cPtcUJN2WKDwM98ghc2iZ5lFWFBJE-1mDql9MuBv5D-zn1Q";
-
 const styles = {
   container: {
     height: "100vh",
@@ -52,31 +49,6 @@ const GuestQrCheckPage = () => {
         });
       }
     })();
-    // if (qr_code && typeof qr_code === "string") {
-    //   getUserByQr(qr_code)
-    //     .then((user) => {
-    //       // console.debug(`GuestQrCheckPage::handleScan::getUserByQr::user::${JSON.stringify(user, null, 2)}`)
-    //       if (user) {
-    //         dispatch(ACTION_UPDATE_USER(user));
-    //         navigate(location.state.backref, {
-    //           replace: true,
-    //           state: { user: user, qr_code: qr_code },
-    //         });
-    //       } else {
-    //         navigate("/", {
-    //           replace: true,
-    //           state: { message: "올바른 QR이 아닙니다." },
-    //         });
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       // console.error(error.response.data.message)
-    //       navigate("/", {
-    //         replace: true,
-    //         state: { message: "올바른 QR이 아닙니다." },
-    //       });
-    //     });
-    // }
   }, [qr_code]);
 
   const handleError = (error) => {};
@@ -98,7 +70,7 @@ const GuestQrCheckPage = () => {
 
   useEffect(() => {
     const timer = window.setTimeout(async () => {
-      const qr_code = await (await fetch("/api/users/5/qr.txt")).json();
+      const qr_code = await (await fetch("/api/users/2/qr.txt")).json();
       setQrCode(qr_code.message);
     }, 3000);
     return () => {
@@ -110,7 +82,7 @@ const GuestQrCheckPage = () => {
     <Container style={styles.container} fluid>
       {!qr_code && (
         <img
-          src={"http://localhost:5000/api/users/5/qr.png"}
+          src={"http://localhost:5000/api/users/2/qr.png"}
           width={"50%"}
           alt={"qr.png"}
         />

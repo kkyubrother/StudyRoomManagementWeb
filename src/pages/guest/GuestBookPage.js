@@ -190,6 +190,7 @@ const GuestBookPage = (props) => {
 
   useEffect(() => {
     if (isStaff) {
+      changeDepartment(dispatch, "기타");
       changePeopleNo(dispatch, -5);
       changePurpose(dispatch, "immediately");
     }
@@ -393,26 +394,6 @@ const GuestBookPage = (props) => {
           disabled={!(guest_state.start_time && guest_state.end_time)}
         />
       )}
-      {/*<InputDepartment*/}
-      {/*    department={guest_state.department}*/}
-      {/*    setDepartment={(department) => changeDepartment(dispatch, department)}*/}
-      {/*    disabled={!guest_state.room}*/}
-      {/*    />*/}
-      {/*{isStaff ? null : (*/}
-      {/*  <InputPeopleNoV2*/}
-      {/*    people_no={guest_state.people_no}*/}
-      {/*    setPeopleNo={(people_no) => changePeopleNo(dispatch, people_no)}*/}
-      {/*    disabled={!guest_state.department}*/}
-      {/*  />*/}
-      {/*)}*/}
-      {/*{isStaff ? null : (*/}
-      {/*  <InputPurpose*/}
-      {/*    purpose={guest_state.purpose}*/}
-      {/*    setPurpose={(purpose) => changePurpose(dispatch, purpose)}*/}
-      {/*    disabled={!guest_state.people_no}*/}
-      {/*  />*/}
-      {/*)}*/}
-
       <InputPay
         paid={paid}
         pay_type={guest_state.pay_type}

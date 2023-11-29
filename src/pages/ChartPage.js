@@ -763,27 +763,6 @@ const ChartPage = (props) => {
             {/*<Form.Check type="checkbox" label={"예약 시간대 별 사용 정보"} onClick={e => setCheckData({...checkData, room_book_usage: e.target.checked})} />*/}
           </div>
         </Form>
-        <Form>
-          <div className="mb-3">
-            <Form.Check
-              type="checkbox"
-              label={"스낵바 매출 정보"}
-              onClick={(e) =>
-                setCheckData({ ...checkData, snackbar_pay: e.target.checked })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label={"스낵바 상품 재고 정보"}
-              onClick={(e) =>
-                setCheckData({
-                  ...checkData,
-                  snackbar_product_stock: e.target.checked,
-                })
-              }
-            />
-          </div>
-        </Form>
       </div>
       <div
         style={{ display: "flex", flexDirection: "column", marginRight: 10 }}

@@ -85,7 +85,7 @@ const BlockerPage = () => {
   const [bookDate, setBookDate] = useState(moment().format("YYYY-MM-DD"));
   const [startTime, setStartTime] = useState(moment("07:00", "HH:mm"));
   const [endTime, setEndTime] = useState(moment("23:00", "HH:mm"));
-  const [department, setDepartment] = useState("");
+  const [department, setDepartment] = useState("기타");
   const [imgSrc, setImgSrc] = useState("");
   const [paid, setPaid] = useState(0);
   const [room, setRoom] = useState({});
@@ -429,10 +429,6 @@ const BlockerPage = () => {
             end_time={endTime}
             onSelectStartTime={handleOnSelectStartTime}
             onSelectEndTime={handleOnSelectEndTime}
-          />
-          <InputDepartment
-            department={department}
-            setDepartment={setDepartment}
           />
           <Form.Group as={Row} controlId="room">
             <Form.Label column sm="2">

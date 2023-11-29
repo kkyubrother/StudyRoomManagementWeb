@@ -33,7 +33,7 @@ const LockerFormComponent = (props) => {
         user_id: 1,
         locker_id: 1,
         rental_period: 1,
-        department: "",
+        department: "기타",
         deposit: 0,
         id_picture: "REGIST",
         rental_key: 1,
@@ -126,19 +126,6 @@ const LockerFormComponent = (props) => {
         <Form.Text className="text-muted">
           해당하는 사용자를 찾지 못한다면 가장 마지막에 찾은 사용자가
           선택됩니다.
-        </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formDepartment">
-        <Form.Label>지역을 입력하세요.</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="사용자 지역을 입력하시오."
-          value={data.department}
-          onChange={(e) => setData({ ...data, department: e.target.value })}
-        />
-        <Form.Text className="text-muted">
-          일관된 지역 이름을 입력해주세요.
         </Form.Text>
       </Form.Group>
 
