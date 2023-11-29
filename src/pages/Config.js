@@ -252,36 +252,36 @@ const Config = (props) => {
       <Navi />
       <Container>
         <Form>
-          <div
-            style={{
-              background: "#0088cc",
-              borderRadius: "10px",
-              padding: "10px",
-              color: "ghostwhite",
-            }}
-          >
-            <fieldset>
-              <legend>개발자 설정</legend>
-              <CustomConfigInput
-                label={"개발자 ID 목록"}
-                announce={"개발자 ID를 적어주세요."}
-                name={"tg_developer_id"}
-                value={`${config_tg.tg_developer_id}`}
-              />
-              <CustomConfigInput
-                label={"대관방 ID"}
-                announce={"/getid 의 chat_id를 입력바랍니다."}
-                name={"tg_manager_group_id"}
-                value={`${config_tg.tg_manager_group_id}`}
-              />
-              <CustomConfigInput
-                label={"기본알림"}
-                announce={"아무 메세지 전송시 뜨는 기본 메세지를 설정합니다."}
-                name={"tg_announce_text"}
-                value={`${config_tg.tg_announce_text}`}
-              />
-            </fieldset>
-          </div>
+          {/*<div*/}
+          {/*  style={{*/}
+          {/*    background: "#0088cc",*/}
+          {/*    borderRadius: "10px",*/}
+          {/*    padding: "10px",*/}
+          {/*    color: "ghostwhite",*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  <fieldset>*/}
+          {/*    <legend>개발자 설정</legend>*/}
+          {/*    <CustomConfigInput*/}
+          {/*      label={"개발자 ID 목록"}*/}
+          {/*      announce={"개발자 ID를 적어주세요."}*/}
+          {/*      name={"tg_developer_id"}*/}
+          {/*      value={`${config_tg.tg_developer_id}`}*/}
+          {/*    />*/}
+          {/*    <CustomConfigInput*/}
+          {/*      label={"대관방 ID"}*/}
+          {/*      announce={"/getid 의 chat_id를 입력바랍니다."}*/}
+          {/*      name={"tg_manager_group_id"}*/}
+          {/*      value={`${config_tg.tg_manager_group_id}`}*/}
+          {/*    />*/}
+          {/*    <CustomConfigInput*/}
+          {/*      label={"기본알림"}*/}
+          {/*      announce={"아무 메세지 전송시 뜨는 기본 메세지를 설정합니다."}*/}
+          {/*      name={"tg_announce_text"}*/}
+          {/*      value={`${config_tg.tg_announce_text}`}*/}
+          {/*    />*/}
+          {/*  </fieldset>*/}
+          {/*</div>*/}
           <hr />
           <div
             style={{
