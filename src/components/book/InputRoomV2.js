@@ -61,16 +61,6 @@ const InputRoomV2 = ({
         setRoom={setRoom}
         disabled={disabled}
       />
-      {/*<Form.Label column sm="2">*/}
-      {/*  그 외*/}
-      {/*</Form.Label>*/}
-      {/*<DropdownRoom*/}
-      {/*  title="그 외"*/}
-      {/*  rooms={rooms.filter((value) => value.type === 2)}*/}
-      {/*  room={room}*/}
-      {/*  setRoom={setRoom}*/}
-      {/*  disabled={disabled}*/}
-      {/*/>*/}
     </Form.Group>
   );
 };

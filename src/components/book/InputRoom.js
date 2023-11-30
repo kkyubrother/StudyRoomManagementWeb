@@ -52,30 +52,6 @@ const InputRoom = ({
             ))}
         </DropdownButton>
       </Col>
-      <Form.Label column sm="2">
-        세미나/스터디
-      </Form.Label>
-      <Col sm={"3"}>
-        <DropdownButton
-          variant="outline-secondary"
-          title={room ? room.name : "장소를 선택하세요."}
-          id="input-group-dropdown-RoomDropdown"
-          disabled={disabled}
-        >
-          {rooms
-            .filter((value) => value.type === 2 || value.type === 3)
-            .filter((value) => value.available)
-            .map((value) => (
-              <Dropdown.Item
-                disabled={!value.available}
-                key={`${value.type}-${value.no}`}
-                onClick={() => setRoom(value)}
-              >
-                {value.name}
-              </Dropdown.Item>
-            ))}
-        </DropdownButton>
-      </Col>
     </Form.Group>
   );
 };

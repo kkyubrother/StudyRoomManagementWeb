@@ -21,7 +21,6 @@ import LockerPage from "./pages/Locker";
 import CouponPage from "./pages/Coupon";
 import CommutePage from "./pages/CommutePage";
 import BlockerPage from "./pages/BlockerPage";
-import DonationPage from "./pages/DonationPage";
 import AdminMainPage from "./pages/AdminMainPage";
 import ChartPage from "./pages/ChartPage";
 import StatusBook from "./pages/StatusBook";
@@ -52,7 +51,6 @@ function App() {
       <Route path="/lockers" element={<LockerPage />} />
       <Route path="/commute" element={<CommutePage />} />
       <Route path="/blocker" element={<BlockerPage />} />
-      <Route path="/donation" element={<DonationPage />} />
       <Route path="/admin" element={<AdminMainPage />} />
       <Route path="/coupon" element={<CouponPage />} />
       <Route path="/chart" element={<ChartPage />} />

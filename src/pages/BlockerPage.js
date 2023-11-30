@@ -14,7 +14,6 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Table from "react-bootstrap/Table";
 import moment from "moment/moment";
 import InputStartEndTimeV2 from "../components/book/InputStartEndTimeV2";
-import InputDepartment from "../components/book/InputDepartment";
 import InputPay from "../components/book/InputPay";
 import { calcPaid } from "../utils";
 import { deleteBook, getBooksByBookDate, postBook } from "../api/books";

@@ -9,8 +9,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import InputStartEndTime from "../../components/book/InputStartEndTime";
 import InputRoom from "../../components/book/InputRoom";
 import { calcPaid } from "../../utils";
-import InputDepartment from "../../components/book/InputDepartment";
-import InputPeopleNo from "../../components/book/InputPeopleNo";
 import InputPay from "../../components/book/InputPay";
 import { useEffect, useState } from "react";
 import { getBooksBy } from "../../api/books";
@@ -104,8 +102,6 @@ const GuestBookInfoComponent = ({
         disabled={true}
       />
       <InputRoom room={book.room} disabled={true} />
-      <InputDepartment department={book.department} disabled={true} />
-      <InputPeopleNo people_no={book.people_no} disabled={true} />
       <InputPay
         pay={disabled ? book.pay : null}
         paid={paid}
@@ -278,7 +274,31 @@ const GuestBookCheckPage = (props) => {
         setMessage(m);
         setShowSpinner(s);
       },
-      () => null,
+      () => {
+        const today_moment = moment();
+        getBooksBy(location.state.user.user_id).then((results) => {
+          setBooks(
+            results
+              .map((value) => {
+                return {
+                  ...value,
+                  start_time: moment(value.start_time, "hh:mm:ss"),
+                  end_time: moment(value.end_time, "hh:mm:ss"),
+                };
+              })
+              .filter((value) =>
+                moment(value.book_date).isSame(today_moment, "day"),
+              ),
+          );
+        });
+
+        setBook(null);
+        setTitle("예약을 선택하세요.");
+        setPayType(null);
+        setEtcReason("");
+        setModal(null);
+        setPaid(0);
+      },
     );
   };
 

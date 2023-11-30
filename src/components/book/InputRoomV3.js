@@ -51,9 +51,6 @@ const InputRoomV3 = ({
       <Form.Label column sm="2">
         장소
       </Form.Label>
-      {/*<Form.Label column sm="2">*/}
-      {/*  스터디룸*/}
-      {/*</Form.Label>*/}
       <DropdownRoom
         title="스터디룸"
         rooms={rooms.filter((value) => value.type === 1)}
@@ -61,14 +58,6 @@ const InputRoomV3 = ({
         setRoom={setRoom}
         disabled={disabled}
       />
-      {/*<Form.Label column sm="2">그 외</Form.Label>*/}
-      {/*<DropdownRoom*/}
-      {/*    title="그 외"*/}
-      {/*    rooms={rooms.filter(value => value.type === 2|| value.type === 4)}*/}
-      {/*    room={room}*/}
-      {/*    setRoom={setRoom}*/}
-      {/*    disabled={disabled}*/}
-      {/*/>*/}
     </Form.Group>
   );
 };

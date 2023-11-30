@@ -44,6 +44,7 @@ export default function cancelBookControl(
     .then((result) => {
       if (result.status === "confirm") {
         updateMessage(result.message, false);
+        callback();
       } else if (result.status === "reject") {
         updateMessage(`예약을 취소할 수 없습니다(${result.message})`, false);
       } else if (result.status === "waiting") {

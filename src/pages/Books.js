@@ -233,14 +233,6 @@ const Books = (props) => {
           <Col sm={1} style={{ marginTop: "8px" }}>
             <Button onClick={handleOnClickNewBook}>예약</Button>
           </Col>
-          {/*<Col sm={1} style={{ marginTop: "8px" }}>*/}
-          {/*  <Button*/}
-          {/*    disabled={users.length === 0}*/}
-          {/*    onClick={() => setShowDonationModal(true)}*/}
-          {/*  >*/}
-          {/*    적립*/}
-          {/*  </Button>*/}
-          {/*</Col>*/}
           <Col sm={1} style={{ marginTop: "8px" }}>
             <Button onClick={() => updateBookData()}>갱신</Button>
           </Col>

@@ -7,8 +7,6 @@ import Spinner from "react-bootstrap/Spinner";
 import Row from "react-bootstrap/Row";
 import InputName from "../components/book/InputName";
 import InputStartEndTime from "../components/book/InputStartEndTime";
-import InputRoom from "../components/book/InputRoom";
-import InputDepartment from "../components/book/InputDepartment";
 import InputPay from "../components/book/InputPay";
 import {
   getPay,
@@ -19,10 +17,6 @@ import {
 } from "../api/pays";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import InputPeopleNoV2 from "../components/book/InputPeopleNoV2";
-import InputPurpose from "../components/book/InputPurpose";
-import { getRooms } from "../api/rooms";
-import { changeRoom } from "../store/GuestReducer";
 import InputRoomV3 from "../components/book/InputRoomV3";
 import { putBookChangeRoom } from "../api/books";
 
@@ -143,7 +137,6 @@ const GuestBookInfoContainer = ({
       {changeRoomText ? (
         <span style={{ color: "red" }}>{changeRoomText}</span>
       ) : null}
-      <InputPurpose purpose={book.purpose} disabled />
       <InputPay
         pay={book.pay}
         paid={paid}

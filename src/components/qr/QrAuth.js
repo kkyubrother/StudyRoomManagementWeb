@@ -1,4 +1,3 @@
-// import QrReader from "react-qr-reader";
 import QrReader from "react-qr-scanner";
 import { getUserByQr } from "../../api/users";
 

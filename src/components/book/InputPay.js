@@ -4,8 +4,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
-import { BsFillCreditCard2BackFill, BsPiggyBankFill } from "react-icons/bs";
-import DepartmentDropdownSelectorComponent from "../bookModal/DepartmentSelector";
+import { BsFillCreditCard2BackFill } from "react-icons/bs";
 
 const INITIAL_TITLE = "지불 방법을 선택하세요.";
 const payTypeName = (pay_type) => {
@@ -98,15 +97,6 @@ const InputPay = ({
                 이체
               </Dropdown.Item>
             )}
-            {options.includes("saved_money.d") && (
-              <Dropdown.Item
-                key={"saved_money.d"}
-                onClick={() => setPayType("saved_money.d")}
-              >
-                <BsPiggyBankFill color={"#138d75"} />
-                적립금
-              </Dropdown.Item>
-            )}
             {(options.includes("etc") || options.includes("notion")) && (
               <Dropdown.Divider />
             )}
@@ -126,13 +116,6 @@ const InputPay = ({
           </DropdownButton>
           {pay_type === "card" ? typeCard : null}
           {pay_type === "transfer" ? typeTransfer : null}
-          {pay_type === "saved_money.d" ? (
-            <DepartmentDropdownSelectorComponent
-              region={region}
-              setRegion={setRegion}
-              disabled={true}
-            />
-          ) : null}
           {pay_type === "notion" ? typeNotion : null}
           {pay_type === "etc" ? typeEtc : null}
           {setPaid ? (

@@ -14,7 +14,6 @@ import GuestReducer, {
   changeUsername,
   initial_guest,
 } from "../../store/GuestReducer";
-import InputDepartment from "../../components/book/InputDepartment";
 import InputPay from "../../components/book/InputPay";
 import { calcPaid } from "../../utils";
 import Col from "react-bootstrap/Col";
@@ -43,8 +42,6 @@ import {
   getConfigBookWeekendClose,
   getConfigBookWeekendOpen,
 } from "../../api/config";
-import InputPeopleNoV2 from "../../components/book/InputPeopleNoV2";
-import InputPurpose from "../../components/book/InputPurpose";
 import AsyncImage from "../../components/AsyncImage";
 
 const styles = {
