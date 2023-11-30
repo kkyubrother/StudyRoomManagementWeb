@@ -142,9 +142,7 @@ const ExpandedComponent = ({ data }) => {
       <CustomRowDataComponent name={"생일"} value={data.birthday} />
       <CustomRowDataComponent name={"나이"} value={data.age} />
       <CustomRowDataComponent name={"성별"} value={data.gender} />
-
       <CustomRowDataComponent name={"등급"} value={data.grade} />
-      <CustomRowDataComponent name={"지역"} value={data.department} />
       <CustomRowDataComponent
         name={"기록일시"}
         value={data.created.replace("T", " ")}

@@ -418,9 +418,6 @@ const LockerPage = () => {
             <Card>
               <Card.Body>
                 <Card.Title>{lockerItemText(selectedRental.locker)}</Card.Title>
-                {/*<Card.Subtitle>번호: {selectedRental.user.num}</Card.Subtitle>*/}
-                {/*<Card.Text>사물함 위치: {lockerItemText(selectedRental.locker)}</Card.Text>*/}
-                <Card.Text>대여 지역: {selectedRental.department}</Card.Text>
                 <Card.Text>
                   대여 사용자:{" "}
                   {`${selectedRental.user.username}(${selectedRental.user.num})`}

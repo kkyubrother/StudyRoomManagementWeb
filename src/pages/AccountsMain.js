@@ -276,7 +276,7 @@ const AccountsMain = (props) => {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>지역</th>
+              <th>이름</th>
               <th>카드 결제</th>
               <th>적립(카드)</th>
               <th>적립(기타)</th>

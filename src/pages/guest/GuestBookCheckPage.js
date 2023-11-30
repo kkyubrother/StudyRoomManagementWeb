@@ -63,9 +63,9 @@ const styles = {
 };
 
 const getTitleFromBook = (book) =>
-  `[${book.department}] ${book.user.username} ${
-    book.people_no
-  } 명  ${book.start_time.format("HH:mm")}~${book.end_time.format("HH:mm")}`;
+  `[${book.department}] ${book.user.username} ${book.start_time.format(
+    "HH:mm",
+  )}~${book.end_time.format("HH:mm")}`;
 const ModalWaitPay = ({ show, handleClose, title, message }) => (
   <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
     <Modal.Header>

@@ -211,10 +211,6 @@ const GuestBookPage = (props) => {
       alert("시간 설정 필요");
     } else if (!guest_state.room) {
       alert("방 설정 필요");
-    } else if (!guest_state.department) {
-      alert("지역 설정 필요");
-    } else if (!guest_state.people_no) {
-      alert("인원 설정 필요");
     } else if (!guest_state.pay_type) {
       alert("결제 정보 설정 필요");
     } else {

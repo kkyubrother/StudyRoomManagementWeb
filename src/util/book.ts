@@ -40,7 +40,7 @@ export const convertBookItem = (
 
   return {
     id: value.book_id,
-    name: `[${value.department}] ${value.user.username} 포함 ${value.people_no}명\n${s} - ${e}`,
+    name: `[${value.department}] ${value.user.username}\n${s} - ${e}`,
     type: "book",
     startTime: startTime,
     endTime: endTime,

@@ -335,7 +335,6 @@ const StatusBook = (props) => {
                       <th>~</th>
                       <th>퇴실 시간</th>
                       <th>사용 시간</th>
-                      <th>지역</th>
                       <th>장소</th>
                     </tr>
                   </thead>
@@ -347,7 +346,6 @@ const StatusBook = (props) => {
                         <td>~</td>
                         <td>{v.end_time}</td>
                         <td>{v.due_hour}</td>
-                        <td>{v.department}</td>
                         <td>{v.place}</td>
                       </tr>
                     ))}

@@ -31,11 +31,6 @@ const columns = [
     selector: (row) => row.user.username,
     hide: "md",
   },
-  {
-    name: "인원",
-    selector: (row) => row.people_no,
-    hide: "md",
-  },
 ];
 
 const conditionalRowStyles = [
@@ -120,40 +115,11 @@ const ExpandedComponent = ({ data }) => {
           />
         </Form.Group>
         <Form.Group as={Col} md={4}>
-          <Form.Label>사용인원</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="사용인원"
-            value={data.people_no}
-            readOnly
-          />
-        </Form.Group>
-        <Form.Group as={Col} md={4}>
           <Form.Label>장소</Form.Label>
           <Form.Control
             type="text"
             placeholder="장소"
             value={data.room.name}
-            readOnly
-          />
-        </Form.Group>
-      </Row>
-      <Row>
-        <Form.Group as={Col} md={4}>
-          <Form.Label>지역</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="지역"
-            value={data.department}
-            readOnly
-          />
-        </Form.Group>
-        <Form.Group as={Col} md={4}>
-          <Form.Label>목적</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="목적"
-            value={data.purpose}
             readOnly
           />
         </Form.Group>

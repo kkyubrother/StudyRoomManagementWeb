@@ -243,7 +243,6 @@ const BlockerPage = () => {
     if (!bookDate) alert("날짜 설정 필요");
     else if (!startTime) alert("시간 설정 필요");
     else if (!endTime) alert("시간 설정 필요");
-    else if (!department) alert("지역 설정 필요");
     else if (!room) alert("장소 설정 필요");
     else if (Object.values(room).length === 0) alert("장소 설정 필요");
     else if (Object.values(room).filter((v) => v.enable).length === 0)
@@ -346,7 +345,7 @@ const BlockerPage = () => {
 
             const v = {
               id: value.book_id,
-              name: `[${value.department}] ${value.user.username} 포함 ${value.people_no}명\n${s} - ${e}`,
+              name: `[${value.department}] ${value.user.username}\n${s} - ${e}`,
               type: "book",
               startTime: startTime,
               endTime: endTime,
